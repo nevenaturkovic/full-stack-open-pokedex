@@ -1,4 +1,4 @@
-import { defineConfig } from 'cypress'
+const { defineConfig } = require('cypress')
 
 // eslint-disable-next-line no-undef
 module.exports = defineConfig({
