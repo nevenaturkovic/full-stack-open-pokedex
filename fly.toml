@@ -46,7 +46,7 @@ timeout = 2000
 tls_skip_verify = false
 
 [[services.script_checks]]
-command = "./app/health_checks/health_check.sh"
+command = "/app/health_checks/health_check.sh"
 args = []
 grace_period = "1s"
 interval = "5s"
