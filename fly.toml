@@ -14,7 +14,6 @@ auto_rollback = true
 internal_port = 5000
 processes = ["app"]
 protocol = "tcp"
-script_checks = []
 
 [services.concurrency]
 hard_limit = 25
@@ -45,6 +44,14 @@ protocol = "http"
 restart_limit = 0
 timeout = 2000
 tls_skip_verify = false
+
+[[services.script_checks]]
+command = "./app/health_checks/health_check.sh"
+args = []
+grace_period = "1s"
+interval = "5s"
+restart_limit = 0
+timeout = "1s"
 
 [deploy]
 release_command = "npm run build"
