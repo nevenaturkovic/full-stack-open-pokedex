@@ -15,6 +15,7 @@ internal_port = 5000
 processes = ["app"]
 protocol = "tcp"
 script_checks = []
+
 [services.concurrency]
 hard_limit = 25
 soft_limit = 20
@@ -39,12 +40,11 @@ timeout = "2s"
 interval = 10000
 grace_period = "5s"
 method = "get"
-path = "/"
+path = "/health"
 protocol = "http"
 restart_limit = 0
 timeout = 2000
 tls_skip_verify = false
-[services.http_checks.headers]
 
 [deploy]
 release_command = "npm run build"
