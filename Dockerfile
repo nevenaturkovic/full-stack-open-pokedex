@@ -22,7 +22,12 @@ ENV NODE_ENV production
 COPY . .
 
 RUN npm install --production=false && npm run build
+
+# Prod container
+
 FROM debian:bullseye
+
+RUN apt-get update; apt install -y curl
 
 LABEL fly_launch_runtime="nodejs"
 
