@@ -42,8 +42,8 @@ jobs:
         with:
           severity: info
           text: A new version of Pokedex deployed
-          description:
-          details: to https://summer-moon-5467.fly.dev/ by ${{github.event.pusher.username}}
+          description: ''
+          details: to https://summer-moon-5467.fly.dev/ by ${{ github.event.pusher.username }}
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Discord deployment failure
         uses: rjstone/discord-webhook-notify@v1
@@ -51,8 +51,8 @@ jobs:
         with:
           severity: error
           text: Build failed
-          description:
-          details: commit ${{github.event.head_commit.url}} by ${{github.event.head_commit.committer.username}} broke the build :(
+          description: ''
+          details: commit ${{ github.event.head_commit.url }} by ${{ github.event.head_commit.committer.username }} broke the build :(
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
   tag_release:
