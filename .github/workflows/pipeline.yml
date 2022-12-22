@@ -36,6 +36,24 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy --remote-only
         if: ${{ github.event_name == 'push' }}
+      - name: Discord Webhook Notify
+        uses: rjstone/discord-webhook-notify@v1.0.4
+        if: ${{ github.event_name == 'push' }}
+      - name: Discord deployment success
+          uses: rjstone/discord-webhook-notify@v1
+          if: ${{ github.event_name == 'push' && success() }}
+          with:
+              severity: info
+              details: Discord deployment succeeded!
+              webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Discord deployment failure
+          uses: rjstone/discord-webhook-notify@v1
+          if: ${{ github.event_name == 'push' && failure() }}
+          with:
+              severity: error
+              details: Discord deployment failed!
+              webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
