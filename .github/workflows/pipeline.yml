@@ -42,7 +42,7 @@ jobs:
         with:
           severity: info
           text: A new version of Pokedex deployed
-          description: to https://summer-moon-5467.fly.dev/ by ${{ github.event.pusher.username }}
+          description: to https://summer-moon-5467.fly.dev/ by ${{ github.event.author.username }}
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Discord deployment failure
         uses: rjstone/discord-webhook-notify@v1
