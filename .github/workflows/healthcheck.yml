@@ -1,16 +1,16 @@
-name: Periodic health check pipeline
+# name: Periodic health check pipeline
 
-on:
-  schedule:
-    - cron: "*/5 * * * *"
+# on:
+#   schedule:
+#     - cron: "*/5 * * * *"
 
-jobs:
-  periodic_health_check_pipeline:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Check the deployed service URL
-        uses: jtalk/url-health-check-action@v3
-        with:
-          url: https://summer-moon-5467.fly.dev/health
-          max-attempts: 3
-          retry-delay: 5s
+# jobs:
+#   periodic_health_check_pipeline:
+#     runs-on: ubuntu-20.04
+#     steps:
+#       - name: Check the deployed service URL
+#         uses: jtalk/url-health-check-action@v3
+#         with:
+#           url: https://summer-moon-5467.fly.dev/health
+#           max-attempts: 3
+#           retry-delay: 5s
