@@ -1,12 +1,8 @@
 name: Periodic health check pipeline
 
 on:
-  push:
-    branches:
-      - master
-
-    # schedule:
-    #   - cron:  '30 5, * * * *'
+  schedule:
+    - cron:  '30 5, * * * *'
 
 jobs: 
   periodic_health_check_pipeline:
