@@ -2,7 +2,7 @@ name: Periodic health check pipeline
 
 on:
   schedule:
-    - cron: "30 5, * * * *"
+    - cron: "30 5 * * *"
 
 jobs:
   periodic_health_check_pipeline:
@@ -11,6 +11,6 @@ jobs:
       - name: Check the deployed service URL
         uses: jtalk/url-health-check-action@v3
         with:
-          url: "https://${FLY_APP_NAME}.fly.dev/health"
+          url: https://summer-moon-5467.fly.dev/health
           max-attempts: 3
           retry-delay: 5s
